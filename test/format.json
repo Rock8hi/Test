@@ -1,0 +1,560 @@
+{
+	"key": {
+		"gameInfo": [{
+			"sort_id": 4,
+			"game_id": 3,
+			"is_new": 0,
+			"game_info": {
+				"play_mode": [{
+					"name": "叫地主",
+					"id": 3101
+				},
+				{
+					"name": "叫分",
+					"id": 3102
+				}],
+				"show_items": [{
+					"name": "局数",
+					"show_key": "roomcard",
+					"show_type": 1,
+					"default": [11]
+				},
+				{
+					"name": "房费",
+					"show_key": "pay_type",
+					"show_type": 1,
+					"default": [1]
+				},
+				{
+					"name": "玩法",
+					"show_key": "play_mode",
+					"show_type": 1,
+					"default": [3101]
+				},
+				{
+					"name": "封顶",
+					"show_key": "bomb_type",
+					"show_type": 1,
+					"default": [221]
+				}],
+				"bomb_type": [{
+					"id": 221,
+					"name": "1炸封顶",
+					"value": 1
+				},
+				{
+					"id": 222,
+					"name": "2炸封顶",
+					"value": 2
+				},
+				{
+					"id": 223,
+					"name": "3炸封顶",
+					"value": 3
+				},
+				{
+					"id": 229,
+					"name": "封顶无上限",
+					"value": -1
+				}],
+				"common_info": {
+					"score_countdown": 12,
+					"landlord_countdown": 12,
+					"not_afford_countdown": 12,
+					"play_countdown": 12
+				},
+				"pay_type": [{
+					"name": "房主支付",
+					"id": 1
+				},
+				{
+					"name": "大赢家支付",
+					"id": 2
+				}],
+				"roomcard": [{
+					"round": 4,
+					"value": 1,
+					"type": 1,
+					"name": "4局(1钻石)",
+					"id": 11
+				},
+				{
+					"round": 8,
+					"value": 1,
+					"type": 1,
+					"name": "8局(1钻石)",
+					"id": 12
+				},
+				{
+					"round": 16,
+					"value": 2,
+					"type": 1,
+					"name": "16局(2钻石)",
+					"id": 13
+				}]
+			},
+			"showtag": 1,
+			"player_number": 3,
+			"game_name": "斗地主"
+		},
+		{
+			"sort_id": 2,
+			"game_id": 4,
+			"is_new": 0,
+			"game_info": {
+				"play_mode": [{
+					"name": "牛牛上庄",
+					"id": 2101
+				},
+				{
+					"name": "明牌抢庄",
+					"id": 2102
+				},
+				{
+					"name": "通比牛牛",
+					"id": 2103
+				}],
+				"play_group": [{
+					"name": "手动组牛",
+					"id": 2001
+				},
+				{
+					"name": "自动组牛",
+					"id": 2002
+				}],
+				"show_items": [{
+					"name": "局数",
+					"show_key": "roomcard",
+					"show_type": 1,
+					"default": [11]
+				},
+				{
+					"name": "房费",
+					"show_key": "pay_type",
+					"show_type": 1,
+					"default": [1]
+				},
+				{
+					"name": "玩法",
+					"show_key": "play_mode",
+					"show_type": 1,
+					"default": [2101]
+				},
+				{
+					"name": "底分",
+					"show_key": "basechiptype",
+					"show_type": 1,
+					"default": [101]
+				},
+				{
+					"name": "组牛",
+					"show_key": "play_group",
+					"show_type": 1,
+					"default": [2001]
+				}],
+				"basechiptype": [{
+					"id": 101,
+					"name": "底分1",
+					"value": 1
+				},
+				{
+					"id": 102,
+					"name": "底分2",
+					"value": 2
+				},
+				{
+					"id": 103,
+					"name": "底分3",
+					"value": 3
+				}],
+				"roomcard": [{
+					"round": 4,
+					"value": 1,
+					"type": 1,
+					"name": "4局(1钻石)",
+					"id": 11
+				},
+				{
+					"round": 8,
+					"value": 1,
+					"type": 1,
+					"name": "8局(1钻石)",
+					"id": 12
+				},
+				{
+					"round": 16,
+					"value": 2,
+					"type": 1,
+					"name": "16局(2钻石)",
+					"id": 13
+				}],
+				"pay_type": [{
+					"name": "房主支付",
+					"id": 1
+				},
+				{
+					"name": "大赢家支付",
+					"id": 2
+				}],
+				"common_info": {
+					"group_countdown": 12,
+					"bet_countdown": 12,
+					"rob_countdown": 12
+				}
+			},
+			"showtag": 1,
+			"player_number": 5,
+			"game_name": "斗牛"
+		},
+		{
+			"sort_id": 5,
+			"game_id": 7,
+			"is_new": 0,
+			"game_info": {
+				"diff_bet": [{
+					"name": "比牌翻倍",
+					"id": 211
+				},
+				{
+					"name": "比牌不翻倍",
+					"id": 212
+				}],
+				"roomcard": [{
+					"round": 4,
+					"value": 1,
+					"type": 1,
+					"name": "4局(1钻石)",
+					"id": 11
+				},
+				{
+					"round": 8,
+					"value": 1,
+					"type": 1,
+					"name": "8局(1钻石)",
+					"id": 12
+				},
+				{
+					"round": 16,
+					"value": 2,
+					"type": 1,
+					"name": "16局(2钻石)",
+					"id": 13
+				}],
+				"pay_type": [{
+					"name": "房主支付",
+					"id": 1
+				},
+				{
+					"name": "大赢家支付",
+					"id": 2
+				}],
+				"top_round": [{
+					"id": 181,
+					"name": "5轮封顶",
+					"value": 5
+				},
+				{
+					"id": 182,
+					"name": "10轮封顶",
+					"value": 10
+				},
+				{
+					"id": 183,
+					"name": "15轮封顶",
+					"value": 15
+				}],
+				"show_items": [{
+					"name": "局数",
+					"show_key": "roomcard",
+					"show_type": 1,
+					"default": [11]
+				},
+				{
+					"name": "房费",
+					"show_key": "pay_type",
+					"show_type": 1,
+					"default": [1]
+				},
+				{
+					"name": "封顶",
+					"show_key": "top_round",
+					"show_type": 1,
+					"default": [181]
+				},
+				{
+					"name": "必闷",
+					"show_key": "must_stuffy_round",
+					"show_type": 1,
+					"default": [195]
+				},
+				{
+					"name": "可比",
+					"show_key": "diff_round",
+					"show_type": 1,
+					"default": [205]
+				},
+				{
+					"name": "比牌",
+					"show_key": "diff_bet",
+					"show_type": 1,
+					"default": [211]
+				}],
+				"must_stuffy_round": [{
+					"id": 195,
+					"name": "任何轮可看牌",
+					"value": 0
+				},
+				{
+					"id": 191,
+					"name": "第1轮必须闷",
+					"value": 1
+				},
+				{
+					"id": 192,
+					"name": "前2轮必须闷",
+					"value": 2
+				}],
+				"diff_round": [{
+					"id": 205,
+					"name": "第0轮可比牌",
+					"value": 0
+				},
+				{
+					"id": 201,
+					"name": "第1轮可比牌",
+					"value": 1
+				},
+				{
+					"id": 202,
+					"name": "第2轮可比牌",
+					"value": 2
+				}],
+				"common_info": {
+					"bet_countdown": 12
+				}
+			},
+			"showtag": 1,
+			"player_number": 5,
+			"game_name": "赢三张"
+		},
+		{
+			"sort_id": 3,
+			"game_id": 8,
+			"is_new": 0,
+			"game_info": {
+				"remain_banker_limit": [{
+					"id": 176,
+					"name": "连庄3轮下庄",
+					"value": 3
+				},
+				{
+					"id": 171,
+					"name": "连庄5轮下庄",
+					"value": 5
+				},
+				{
+					"id": 172,
+					"name": "连庄6轮下庄",
+					"value": 6
+				}],
+				"show_items": [{
+					"name": "局数",
+					"show_key": "roomcard",
+					"show_type": 1,
+					"default": [11]
+				},
+				{
+					"name": "房费",
+					"show_key": "pay_type",
+					"show_type": 1,
+					"default": [1]
+				},
+				{
+					"name": "锅底",
+					"show_key": "pot_bottom",
+					"show_type": 1,
+					"default": [163]
+				},
+				{
+					"name": "连庄",
+					"show_key": "remain_banker_limit",
+					"show_type": 1,
+					"default": [176]
+				}],
+				"common_info": {
+					"record_countdown": 12,
+					"remain_countdown": 12,
+					"remain_banker_countdown": 12,
+					"bet_countdown": 12
+				},
+				"pot_bottom": [{
+					"id": 163,
+					"name": "10锅底",
+					"value": 10
+				}],
+				"pay_type": [{
+					"name": "房主支付",
+					"id": 1
+				},
+				{
+					"name": "大赢家支付",
+					"id": 2
+				}],
+				"roomcard": [{
+					"round": 4,
+					"value": 1,
+					"type": 1,
+					"name": "4局(1钻石)",
+					"id": 11
+				},
+				{
+					"round": 8,
+					"value": 1,
+					"type": 1,
+					"name": "8局(1钻石)",
+					"id": 12
+				},
+				{
+					"round": 16,
+					"value": 2,
+					"type": 1,
+					"name": "16局(2钻石)",
+					"id": 13
+				}]
+			},
+			"showtag": 1,
+			"player_number": 4,
+			"game_name": "推饼"
+		},
+		{
+			"sort_id": 1,
+			"game_id": 21,
+			"is_new": 0,
+			"game_info": {
+				"play_mode": [{
+					"name": "带风牌",
+					"id": 1103
+				},
+				{
+					"name": "带混",
+					"id": 1104
+				},
+				{
+					"name": "七对加倍",
+					"id": 1109
+				},
+				{
+					"name": "十三不靠加倍",
+					"id": 20001
+				},
+				{
+					"name": "杠上花加倍",
+					"id": 1108
+				},
+				{
+					"name": "庄家加底",
+					"id": 1107
+				}],
+				"contain_add_list": [{
+					"master": 1103,
+					"contains": [20001]
+				},
+				{
+					"master": 20001,
+					"contains": [1103]
+				}],
+				"show_items": [{
+					"name": "局数",
+					"show_key": "roomcard",
+					"show_type": 1,
+					"default": [11]
+				},
+				{
+					"name": "房费",
+					"show_key": "pay_type",
+					"show_type": 1,
+					"default": [1]
+				},
+				{
+					"name": "玩法",
+					"show_key": "play_mode",
+					"show_type": 2,
+					"default": [1103,
+					1104]
+				}],
+				"roomcard": [{
+					"round": 4,
+					"value": 1,
+					"type": 1,
+					"name": "4局(1钻石)",
+					"id": 11
+				},
+				{
+					"round": 8,
+					"value": 1,
+					"type": 1,
+					"name": "8局(1钻石)",
+					"id": 12
+				},
+				{
+					"round": 16,
+					"value": 2,
+					"type": 1,
+					"name": "16局(2钻石)",
+					"id": 13
+				}],
+				"contain_del_list": [{
+					"master": 1103,
+					"contains": [20001]
+				}],
+				"pay_type": [{
+					"name": "房主支付",
+					"id": 1
+				},
+				{
+					"name": "大赢家支付",
+					"id": 2
+				}],
+				"common_info": {
+					"play_countdown": 15,
+					"operate_countdown": 15
+				}
+			},
+			"showtag": 1,
+			"player_number": 4,
+			"game_name": "三门峡麻将"
+		}],
+		"_CreateRoomRecord": {
+			"3": {
+				"play_mode": {
+					"default": [3101]
+				},
+				"roomcard": {
+					"default": [11]
+				},
+				"pay_type": {
+					"default": [1]
+				},
+				"bomb_type": {
+					"default": [221]
+				}
+			},
+			"21": {
+				"play_mode": {
+					"default": [1103,
+					1104,
+					1107,
+					1109,
+					1108,
+					20001]
+				},
+				"pay_type": {
+					"default": [1]
+				},
+				"roomcard": {
+					"default": [11]
+				}
+			}
+		}
+	}
+}
