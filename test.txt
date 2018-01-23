@@ -1,10 +1,69 @@
-this is text.
+	
+layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
+layout->setBackGroundColor(Color3B::RED)
 
-test branch dev.
+-- Layout显示底色
+layout:setBackGroundColorType(ccui.LayoutBackGroundColorType.solid)
+layout:setBackGroundColor(cc.RED)
 
 
-http://blog.csdn.net/wuxia2001/article/details/45743641
+local data = {
+	seatId = 1,
+	huaCards = {2, 1, 0, 3},
+	newCards = {0x41},
+	newHuaCards = {0x54, 0x55, 0x56},
+	isHuang = 0
+}
 
-https://github.com/whiletest/zombie
 
-https://github.com/tomwillow/2048
+
+
+static void dumpStack(lua_State *L)
+{
+	printf("\n");
+	int i = 0;
+	int top = lua_gettop(L);    // 获取栈中元素个数。
+	printf("top: %d\n", top);
+	for (i = top; i >= 1; --i)    // 遍历栈中每一个元素。
+	{
+		int t = lua_type(L, i);    // 获取元素的类型。
+		switch (t)
+		{
+		case LUA_TSTRING:    // strings
+			printf("%d: [%s] '%s'\n", i, lua_typename(L, t), lua_tostring(L, i));
+			break;
+
+		case LUA_TBOOLEAN:    // bool
+			printf("%d: [%s] %s\n", i, lua_typename(L, t), lua_toboolean(L, i) ? "true" : "false");
+			break;
+
+		case LUA_TNUMBER:    // number
+			printf("%d: [%s] %g\n", i, lua_typename(L, t), lua_tonumber(L, i));    // %g，自动选择%e或%f表示数值。
+			break;
+
+		default:    // other values
+			printf("%d: [%s]\n", i, lua_typename(L, t));    // 将宏定义的类型码转换为类型名称。
+			break;
+		}
+	}
+	printf("\n");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
