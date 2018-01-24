@@ -440,11 +440,111 @@ local ta = Class2.new()
 ta:test()
 
 
-print("9999", require("testlib"))
+
+local other = {}
+--local meta = {__index = other, __newindex = other}
+local meta = {__index = other, __newindex = function(t, key, value) 
+		local tt = getmetatable(t)
+    if type(value) == "number" then 
+      rawset(tt.__index, key, value * value) 
+    else 
+      rawset(tt.__index, key, value) 
+    end 
+  end}
+
+--local meta = {__index = function(tab, key) return getmetatable(tab)[key] end, __newindex = function(tab, key, v) getmetatable(tab)[key] = v end}
+local hello = setmetatable({}, meta)
+print("aa1", hello.aa)
+hello.aa = "bingo"
+print("aa2", other.aa)
+print("aa3", meta.aa)
+print("aa4", hello.aa)
+
+hello.bb = 4
+print("bb2", other.bb)
+print("bb3", meta.bb)
+print("bb4", hello.bb)
+
+
+dump(other)
+dump(meta)
+dump(hello)
+
+
+local t = setmetatable({1,2,3}, {__tostring = function(tt)
+	local count =0
+	for _,v in ipairs(tt) do count= count+v end
+	return "count: "..count
+end})
+print(t)
+
+local bb = {}
+print(bb)
 
 
 
 
+local vec2 = {}
+vec2.__index = vec2
+vec2.__tostring = function(t) return string.format("(%g,%g)",t.x,t.y) end
+vec2.__add = function(t1,t2) return vec2(t1.x+t2.x, t1.y+t2.y) end
+vec2.__sub = function(t1,t2) return vec2(t1.x-t2.x, t1.y-t2.y) end
+vec2.__mul = function(t,scale)
+	if type(scale) ~= "number" then
+		error("scale MUST be mumber.")
+	end
+	return vec2(t.x*scale, t.y*scale)
+end
+
+function vec2.new(x,y)
+	return setmetatable({x = x or 0, y = y or 0}, vec2)
+end
+
+setmetatable(vec2, {__call = function(_, ...) return vec2.new(...) end})
+
+-- 点乘
+function vec2:dot(v1, v2)
+	return v1.x * v2.x + v1.y * v2.y
+end
+
+-- 叉乘
+function vec2:cross(v1, v2)
+	return v1.x * v2.y - v1.y * v2.x
+end
+
+-- 投影，返回向量v1在向量v2上的投影向量
+function vec2:project(v1, v2)
+	local tmp = vec2:dot(v1, v2) / vec2:dot(v2, v2)
+	return vec2(v2.x * tmp , v2.y * tmp)
+end
+
+function vec2:new_from_angle(a)
+	return vec2(math.cos(a),math.sin(a))
+end
+
+function vec2:rotate(v1, v2)
+    return vec2(v1.x * v2.x - v1.y * v2.y, v1.x * v2.y + v1.y * v2.x)
+end
+
+function vec2:rotate_by_angle(v, pivot, angle)
+	return pivot + vec2:rotate(v - pivot, vec2:new_from_angle(angle))
+end
+
+function vec2:test()
+	print("test11234")
+end
+
+local abc = vec2(2,3)
+dump(abc, "kkkk")
+abc:test()
+
+local def = vec2(4,5)
+
+print(abc+def)
+print(abc-def)
+print(vec2:dot(abc,def))
+print(abc*5)
+print(vec2:rotate_by_angle(vec2(1,1), vec2(), math.pi/4))
 
 
 
