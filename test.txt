@@ -15,7 +15,8 @@ local data = {
 	isHuang = 0
 }
 
-
+pngquant——一个好用的png压缩工具
+pngquant --quality=65-80 image.png
 
 
 static void dumpStack(lua_State *L)
