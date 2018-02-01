@@ -19,7 +19,47 @@ pngquant——一个好用的png压缩工具
 pngquant --quality=65-80 image.png
 
 
-static void dumpStack(lua_State *L)
+
+
+#define PRINT_TABLE_FIELD(__index__) \
+{\
+	int __type__ = lua_type(L, __index__);\
+	switch (__type__)\
+	{\
+	case LUA_TBOOLEAN:\
+		printf("%s", lua_toboolean(L, __index__) ? "true" : "false");\
+		break;\
+	case LUA_TNUMBER:\
+		printf("%.02f", lua_tonumber(L, __index__));\
+		break;\
+	case LUA_TSTRING:\
+		printf("'%s'", lua_tostring(L, __index__));\
+		break;\
+	default:\
+		printf("%s", lua_typename(L, __type__));\
+		break;\
+	}\
+}\
+
+void luaPrintTable(lua_State *L, int tab)
+{
+	if (!lua_istable(L, tab))
+		return;
+
+	lua_pushnil(L); // push the first key
+	while (0 != lua_next(L, tab))
+	{
+		PRINT_TABLE_FIELD(-2); // value
+		printf(" : ");
+		PRINT_TABLE_FIELD(-1); // key
+		printf("\n");
+		lua_pop(L, 1); // pop value
+	}
+	return 0;
+}
+
+
+void luaDumpStack(lua_State *L)
 {
 	printf("\n");
 	int i = 0;
@@ -42,6 +82,11 @@ static void dumpStack(lua_State *L)
 			printf("%d: [%s] %g\n", i, lua_typename(L, t), lua_tonumber(L, i));    // %g，自动选择%e或%f表示数值。
 			break;
 
+		case LUA_TTABLE:
+			printf("%d: [%s]\n", i, lua_typename(L, t));
+			luaPrintTable(L, i);
+			break;
+
 		default:    // other values
 			printf("%d: [%s]\n", i, lua_typename(L, t));    // 将宏定义的类型码转换为类型名称。
 			break;
@@ -49,12 +94,6 @@ static void dumpStack(lua_State *L)
 	}
 	printf("\n");
 }
-
-
-
-
-
-
 
 
 
