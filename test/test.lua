@@ -548,21 +548,137 @@ print(vec2:rotate_by_angle(vec2(1,1), vec2(), math.pi/4))
 
 
 
+print("\ncoroutine test1")
+local f = function(a)
+	print("hello world", a)
+	local abc = coroutine.yield()
+	print("yield", abc)
+	return 90
+end
+
+local co = coroutine.create(f)
+
+print(coroutine.resume(co, 123))
+
+print("=========")
+print(coroutine.status(co))
+print("=========")
+
+print(coroutine.resume(co, 567))
+
+print(coroutine.status(co))
+print(co)
 
 
+print("\ncoroutine test2")
+local f2 = function(a)
+	print("hello",a)
+	local b = coroutine.yield()
+	print("world", b)
+end
+local co2 = coroutine.wrap(f2)
+co2(11)
+co2(22)
+print(type(co2))
 
 
+print("\ncoroutine test3")
+function status()
+    print("co1's status :"..coroutine.status(co1).." ,co2's status: "..coroutine.status(co2))
+end
+
+co1 = coroutine.create(function ( a )
+    print("arg is :"..a)
+    status()
+    local stat,rere = coroutine.resume(co2,"2")
+    print("resume's return is "..rere)
+    status()
+    local stat2,rere2 = coroutine.resume(co2,"4")
+    print("resume's return is "..rere2)
+    local arg = coroutine.yield("6")
+end)
+co2 = coroutine.create(function ( a )
+    print("arg is :"..a)
+    status()
+    local rey = coroutine.yield("3")
+    print("yeild's return is " .. rey)
+    status()
+    coroutine.yield("5")
+end)
+--主线程执行co1,传入字符串“main thread arg”
+stat,mainre = coroutine.resume(co1,"1")
+status()
+print("last return is "..mainre)
 
 
+print("\ncoroutine test4")
+
+local Rock = {}
+Rock.__index = Rock
+
+function Rock.new(...)
+	local funcs = {...}
+	if not next(funcs) then return end
+	local func = function(...)
+		local args = table.pack(...)
+		local ret
+		for _, f in ipairs(funcs) do
+			ret = table.pack(f(table.unpack(args)))
+			args = table.pack(coroutine.yield(table.unpack(ret)))
+		end
+		return table.unpack(ret)
+	end
+	local co = coroutine.create(func)
+	return setmetatable({co = co}, Rock)
+end
+
+function Rock:exec(...)
+	return coroutine.resume(self.co, ...)
+end
 
 
+local r = Rock.new(
+	function(...)
+		print("111hello", ...)
+		return 666,999,'bbb'
+	end,
+	function(...)
+		print("222world", ...)
+		return 888,444,'we are friend.'
+	end
+)
+
+print(r:exec("nnn",111,5))
+print(r:exec('bbb',222,66))
 
 
+--print(">>>>",ipairs{1,2,3})
 
+local ipairs = function(tab)
+	--[[local i = 1
+	return function()
+		if i > #tab then return end
+		local a,b = i, tab[i]
+		i = i + 1
+		return a,b
+	end]]
+	local co = coroutine.create(function()
+		for i = 1, #tab do
+			coroutine.yield(i, tab[i])
+		end
+	end)
+	return function()
+		local stat, a,b = coroutine.resume(co)
+		if stat then
+			return a,b
+		end
+	end
+end
 
-
-
-
+local aabb = {12,3,545,7,345}
+for i, v in ipairs(aabb) do
+	print(i,v)
+end
 
 
 
