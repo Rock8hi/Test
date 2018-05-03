@@ -29,6 +29,24 @@ print(string.sub(aa, 2,4))
 print(string.find(aa, ".com"))
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if nil then
 
 local TableViewTestLayer = class("TableViewTestLayer")
