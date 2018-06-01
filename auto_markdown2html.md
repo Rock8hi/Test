@@ -98,3 +98,11 @@ fi
 ## 更新文档
 */10 * * * * cd /home/xxx/doc; sh markdown2web.sh > /dev/null 2>&1
 ```
+
+####备注
+生成css样式文件方法
+Python安装pygments
+yum install pygments
+```bash
+pygmentize -f html -a .codehilite -S default > default.css
+```
