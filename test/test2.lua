@@ -1,34 +1,37 @@
 
 package.path = package.path .. "E:\\test\\github\\Test\\test\\?.lua;"
-print(package.path)
+print("package.path=", package.path)
 
 require "print_table"
 
-local bb = {123,43,56,4567,4576,58,6}
-printTable(bb)
+--local bb = {123,43,56,4567,4576,58,6}
+--printTable(bb)
 
 local ffi = require "ffi"
+
+printTable(ffi)
 
 ffi.cdef [[
 		#pragma pack(4)
 		typedef struct {
 			unsigned short KindId;
+            unsigned char TestBuf[32];
 		} st_Regist;
     ]]
     
 local str = ffi.new("st_Regist")
 str.KindId = 5
+str.TestBuf = "helloÄãºÃ"
+print("ffi test", str.KindId, ffi.string(str.TestBuf, 32))
 
-local  dd = "123"
-print(string.format("0x%x", string.sub(dd, 2,2)))
+local dd = "123"
+print("string.format", string.format("0x%x", string.sub(dd, 2, 2)))
 
 
 local aa = "ab.com.cde"
-print(string.sub(aa, 2,4))
+print("string.sub", string.sub(aa, 2, 4))
 
-print(string.find(aa, ".com"))
-
-
+print("string.find", string.find(aa, ".com"))
 
 
 
@@ -44,10 +47,28 @@ print(string.find(aa, ".com"))
 
 
 
+--[[
+local overwrite_function_names = {"setVisible", "removeFromParent"}
+local function overwrite_node_function(funcName)
+    if Node[funcName] then
+        Node["_" .. funcName] = Node[funcName]
+        Node[funcName] = function(self, visible)
+            if tolua.isnull(self) then
+                return
+            end
+            Node["_" .. funcName](self, visible)
+        end
+    end
+end
+for _, func_name in ipairs(overwrite_function_names) do
+    overwrite_node_function(func_name)
+end
+]]
 
 
 
-if nil then
+
+--[[
 
 local TableViewTestLayer = class("TableViewTestLayer")
 TableViewTestLayer.__index = TableViewTestLayer
@@ -171,4 +192,4 @@ end
 
 cc.Director:getInstance():runWithScene(runTableViewTest())
 
-end
+]]

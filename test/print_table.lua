@@ -77,6 +77,7 @@ end
 
 
 --//test code
+--[[
 b={[printTable]=1,[dumpTab]=33}
 a={inter={ext=1000,uuid="432-43243-43124324",inter2={ext=1000,uuid="432-43243-43124324",[printTable]=2},"anil",nil},"fda",fdsaf,true};
 
@@ -88,3 +89,4 @@ print(sa);
 
 printTable(a)
 printTable(b)
+]]
