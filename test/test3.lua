@@ -6,9 +6,9 @@ for w in string.gmatch(str, "[,%d+]") do
 end
 print(tonumber(num))
 
-print(os.date("!%c", os.time()))
+print(os.date("!%x", os.time()+24*3600))
 
-
+-- S.o8M.q-_ZMQRhRC
 
 
 --[[
@@ -50,9 +50,6 @@ int MessageBoxA(void *w, const char *txt, const char *cap, int type);
 ]]
 --ffi.C.MessageBoxA(nil, "Hello world!", "Test", 0)
 
-
-
-
 ffi.cdef[[
 void Sleep(int ms);
 int poll(struct pollfd *fds, unsigned long nfds, int timeout);
@@ -75,12 +72,6 @@ end
   sleep(0.01)
 end
 io.write("\n")]]
-
-local zip=require("zlib") 
-print("CCCCCCCC", zip)
-local win32 = ffi.load('msvcrt.dll')--malloc和free函数
-print("XXXXXXXX", win32)
---package.path = package.path .. "D:\\work\\fish\\develop\\simulator\\win32\\?.dll;"
 
 
 --
@@ -160,6 +151,33 @@ function test()
     print("all test succ")
 end
 
-test()
+--test()
+
+
+
+print(debug.getinfo (2))
+print("hello")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

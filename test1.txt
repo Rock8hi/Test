@@ -9,4 +9,13 @@ https://github.com/whiletest/zombie
 
 https://github.com/tomwillow/2048
 
-托尔斯泰
+
+在windows下用cmd -> ipconfig查看VirtualBox Host-Only Network找到IPv4地址：192.168.56.1[一般都是这个]
+
+在xubuntu下的terminal -> ifconfig查看eth0的inet addr:10.0.2.15[一般也都是这个]
+
+在virtualbox中的菜单上找到控制--设置--网络，进入端口转发设置：
+
+点击右面的按钮添加新规则
+
+名称可以默认，协议使用TCP，主机IP：192.168.56.1，端口一般是：22,子系统IP:10.0.2.15,子系统端口也是：22
